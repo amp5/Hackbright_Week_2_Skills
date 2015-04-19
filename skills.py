@@ -159,34 +159,58 @@ common_items(sampleLst6, sampleLst7)
 
 
 
-# def sum_zero(list1):
-#     """Return list of x,y number pair lists from a list where x+y==0
+def sum_zero(list1):
+    """Return list of x,y number pair lists from a list where x+y==0
 
-#     Given a list of numbers, add up each individual pair of numbers.
-#     Return a list of each pair of numbers that adds up to 0.
+    Given a list of numbers, add up each individual pair of numbers.
+    Return a list of each pair of numbers that adds up to 0.
 
 
-#     For example:
+    # For example:
 
-#         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1]) )
-#         [[-2, 2], [-1, 1]]
+    #     >>> sort_pairs( sum_zero([1, 2, 3, -2, -1]) )
+    #     [[-2, 2], [-1, 1]]
 
-#     This should always be a unique list, even if there are
-#     duplicates in the input list:
+    # This should always be a unique list, even if there are
+    # duplicates in the input list:
 
-#         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 1]) )
-#         [[-2, 2], [-1, 1]]
+    #     >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 1]) )
+    #     [[-2, 2], [-1, 1]]
 
-#     Of course, if there are one or more zeros to pair together,
-#     that's fine, too:
+    # Of course, if there are one or more zeros to pair together,
+    # that's fine, too:
 
-#         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]) )
-#         [[-2, 2], [-1, 1], [0, 0]]
+    #     >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]) )
+    #     [[-2, 2], [-1, 1], [0, 0]]
 
-#     """
+    """
+    setFromList = set(list1)
+    srtedList = sorted(setFromList)
+    print "sorted list", srtedList
+  
+    list_sum_zero = []
 
-#     return []
+    for num in srtedList:
+        if num + (-num) == 0:
+            num_pair = [num, (-num)]
+            print num_pair
+        # if num_pair[0] in list_sum_zero[num]:
+        #     continue   
+        if num_pair[1] in srtedList:
+            list_sum_zero.append(num_pair)
 
+    print list_sum_zero
+ 
+
+  
+sampleLst9 = [1, 2, 3, -2, -1]
+sampleLst10 = [1, 2, 3, -2, -1, 1, 1]
+
+#print sum_zero(sampleLst9)
+
+print sum_zero(sampleLst10)
+
+## Can't figure out how to remove duplicate. Math logic is flawed. 
 
 # def find_duplicates(words):
 #     """Given a list of words, return the list with duplicates removed.

@@ -186,20 +186,20 @@ def sum_zero(list1):
     """
     setFromList = set(list1)
     srtedList = sorted(setFromList)
-    print "sorted list", srtedList
+    #print "sorted list", srtedList
   
     list_sum_zero = []
 
     for num in srtedList:
         if num + (-num) == 0:
             num_pair = [num, (-num)]
-            print num_pair
+            #print num_pair
         # if num_pair[0] in list_sum_zero[num]:
         #     continue   
         if num_pair[1] in srtedList:
             list_sum_zero.append(num_pair)
 
-    print list_sum_zero
+    return list_sum_zero
  
 
   
@@ -208,29 +208,38 @@ sampleLst10 = [1, 2, 3, -2, -1, 1, 1]
 
 #print sum_zero(sampleLst9)
 
-print sum_zero(sampleLst10)
-
 ## Can't figure out how to remove duplicate. Math logic is flawed. 
+sum_zero(sampleLst10)
 
-# def find_duplicates(words):
-#     """Given a list of words, return the list with duplicates removed.
 
-#     For example:
 
-#         >>> sorted(find_duplicates(
-#         ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
-#         ['a', 'is', 'rose']
+def find_duplicates(words):
+    """Given a list of words, return the list with duplicates removed.
 
-#     You should treat differently-capitalized words as different:
+    For example:
 
-#         >>> sorted(find_duplicates(
-#         ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
-#         ['Rose', 'a', 'is', 'rose']
+        >>> sorted(find_duplicates(
+        ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
+        ['a', 'is', 'rose']
 
-#     """
+    You should treat differently-capitalized words as different:
 
-#     return []
+        >>> sorted(find_duplicates(
+        ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
+        ['Rose', 'a', 'is', 'rose']
 
+    """
+    
+    setFromList = set(words)
+    uniqueList = list(setFromList)
+    return uniqueList
+
+sampleLst11 = "rose", "is", "a", "rose", "is", "a", "rose"
+sampleLst12 = "Rose", "is", "a", "rose", "is", "a", "rose"
+
+
+find_duplicates(sampleLst11)
+find_duplicates(sampleLst12)
 
 # def word_length(words):
 #     """Given list of words, return list of ascending [(len, [words])].

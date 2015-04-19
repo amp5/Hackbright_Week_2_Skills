@@ -111,33 +111,52 @@ sampleLst3 = [1, 2, 3, 4]
 sampleLst4 = [1, 2]
 sampleLst5 = [1, 1, 2, 2]
 
-return common_items(sampleLst3, sampleLst4)
+#return common_items(sampleLst3, sampleLst4)
 
 # print common_items(sampleLst3, sampleLst5)
 
-# def unique_common_items(list1, list2):
-#     """Produce the set of *unique* common items in two lists.
+def unique_common_items(list1, list2):
+    """Produce the set of *unique* common items in two lists.
 
-#     Given two lists, return a list of the *unique* common items shared between
-#     the lists.
+    Given two lists, return a list of the *unique* common items shared between
+    the lists.
 
-#     IMPORTANT: you may not not 'if ___ in ___' or the method 'index'.
+    IMPORTANT: you may not not 'if ___ in ___' or the method 'index'.
 
 
-#     Just like `common_items`, this should find [1, 2]:
+    Just like `common_items`, this should find [1, 2]:
 
-#         >>> sorted(unique_common_items([1, 2, 3, 4], [1, 2]))
-#         [1, 2]
+        >>> sorted(unique_common_items([1, 2, 3, 4], [1, 2]))
+        [1, 2]
 
-#     However, now we only want unique items, so for these lists, don't show
-#     more than 1 or 2 once:
+    However, now we only want unique items, so for these lists, don't show
+    more than 1 or 2 once:
 
-#         >>> sorted(unique_common_items([1, 2, 3, 4], [1, 1, 2, 2]))
-#         [1, 2]
+        >>> sorted(unique_common_items([1, 2, 3, 4], [1, 1, 2, 2]))
+        [1, 2]
 
-#     """
+    """
 
-#     return []
+
+    set1 = set(list1) 
+    #print set1
+    set2 = set(list2)
+    #print set2
+
+    intersectionSet = set1 & set2
+    #print intersectionSet
+    return intersectionSet
+
+
+    # print "giantLst", giantLst
+    # return "giantSet", giantSet
+
+sampleLst6 = [1, 2, 3, 4]
+sampleLst7 = [1, 2]
+sampleLst8 = [1, 1, 2, 2]
+
+common_items(sampleLst6, sampleLst7)
+
 
 
 # def sum_zero(list1):

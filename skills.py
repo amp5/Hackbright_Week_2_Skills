@@ -1,3 +1,5 @@
+from collections import Counter
+
 # To work on the advanced problems, set to True
 ADVANCED = False
 
@@ -28,8 +30,34 @@ def count_unique(string1):
         {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
 
     """
+    #create a dict with empty values. print keys.
+    # then count how many times a unique key is in string with for loop adding a coutner
 
-    return {}
+    lst = string1.split(" ")
+
+
+    # Can't do this, printing out collections.Counter type..
+    # counted = Counter(lst)
+    # print type(counted)
+
+
+    dict_count_uniq = {}
+
+    for word in lst:    
+       
+        if word not in dict_count_uniq:
+            dict_count_uniq[word] = 1
+
+        else:
+            dict_count_uniq[word] += 1
+        
+    return dict_count_uniq
+
+# sampleLst = "each word appears once"
+# print count_unique(sampleLst)
+
+sampleLst2 = "rose is a rose is a rose"
+#print count_unique(sampleLst2)
 
 
 def common_items(list1, list2):
@@ -43,177 +71,202 @@ def common_items(list1, list2):
 
     For example:
 
-        >>> sorted(common_items([1, 2, 3, 4], [1, 2]))
-        [1, 2]
+    #     >>> sorted(common_items([1, 2, 3, 4], [1, 2]))
+    #     [1, 2]
 
-    If an item appears more than once in both lists, return it each
-    time:
+    # If an item appears more than once in both lists, return it each
+    # time:
 
-        >>> sorted(common_items([1, 2, 3, 4], [1, 1, 2, 2]))
-        [1, 1, 2, 2]
+    #     >>> sorted(common_items([1, 2, 3, 4], [1, 1, 2, 2]))
+    #     [1, 1, 2, 2]
 
-    (And the order of which has the multiples shouldn't matter, either):
+    # (And the order of which has the multiples shouldn't matter, either):
 
-        >>> sorted(common_items([1, 1, 2, 2], [1, 2, 3, 4]))
-        [1, 1, 2, 2]
-
-    """
-
-    return []
-
-
-def unique_common_items(list1, list2):
-    """Produce the set of *unique* common items in two lists.
-
-    Given two lists, return a list of the *unique* common items shared between
-    the lists.
-
-    IMPORTANT: you may not not 'if ___ in ___' or the method 'index'.
-
-
-    Just like `common_items`, this should find [1, 2]:
-
-        >>> sorted(unique_common_items([1, 2, 3, 4], [1, 2]))
-        [1, 2]
-
-    However, now we only want unique items, so for these lists, don't show
-    more than 1 or 2 once:
-
-        >>> sorted(unique_common_items([1, 2, 3, 4], [1, 1, 2, 2]))
-        [1, 2]
+    #     >>> sorted(common_items([1, 1, 2, 2], [1, 2, 3, 4]))
+    #     [1, 1, 2, 2]
 
     """
 
-    return []
+    giantLst = list1 + list2
+
+    giantSet = set(giantLst)
+# ******** got stuck here (above) will redo later ********
+# able to solve with if in below
+# Not sure I understand this question
+
+    common_num = []
+
+    for num in list1 and list2:
+        if num in list1 and list2:
+            common_num.append(num)
+
+    return common_num
 
 
-def sum_zero(list1):
-    """Return list of x,y number pair lists from a list where x+y==0
 
-    Given a list of numbers, add up each individual pair of numbers.
-    Return a list of each pair of numbers that adds up to 0.
+    # print "giantLst", giantLst
+    # return "giantSet", giantSet
 
+sampleLst3 = [1, 2, 3, 4]
+sampleLst4 = [1, 2]
+sampleLst5 = [1, 1, 2, 2]
 
-    For example:
+return common_items(sampleLst3, sampleLst4)
 
-        >>> sort_pairs( sum_zero([1, 2, 3, -2, -1]) )
-        [[-2, 2], [-1, 1]]
+# print common_items(sampleLst3, sampleLst5)
 
-    This should always be a unique list, even if there are
-    duplicates in the input list:
+# def unique_common_items(list1, list2):
+#     """Produce the set of *unique* common items in two lists.
 
-        >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 1]) )
-        [[-2, 2], [-1, 1]]
+#     Given two lists, return a list of the *unique* common items shared between
+#     the lists.
 
-    Of course, if there are one or more zeros to pair together,
-    that's fine, too:
-
-        >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]) )
-        [[-2, 2], [-1, 1], [0, 0]]
-
-    """
-
-    return []
+#     IMPORTANT: you may not not 'if ___ in ___' or the method 'index'.
 
 
-def find_duplicates(words):
-    """Given a list of words, return the list with duplicates removed.
+#     Just like `common_items`, this should find [1, 2]:
 
-    For example:
+#         >>> sorted(unique_common_items([1, 2, 3, 4], [1, 2]))
+#         [1, 2]
 
-        >>> sorted(find_duplicates(
-        ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
-        ['a', 'is', 'rose']
+#     However, now we only want unique items, so for these lists, don't show
+#     more than 1 or 2 once:
 
-    You should treat differently-capitalized words as different:
+#         >>> sorted(unique_common_items([1, 2, 3, 4], [1, 1, 2, 2]))
+#         [1, 2]
 
-        >>> sorted(find_duplicates(
-        ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
-        ['Rose', 'a', 'is', 'rose']
+#     """
 
-    """
-
-    return []
+#     return []
 
 
-def word_length(words):
-    """Given list of words, return list of ascending [(len, [words])].
+# def sum_zero(list1):
+#     """Return list of x,y number pair lists from a list where x+y==0
 
-    Given a list of words, return a list of tuples, ordered by word-length.
-    Each tuple should have two items--the length of the words for that
-    word-length, and the list of words of that word length.
-
-    For example:
-
-        >>> word_length(["ok", "an", "apple", "a", "day"])
-        [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
-
-    """
-
-    return []
+#     Given a list of numbers, add up each individual pair of numbers.
+#     Return a list of each pair of numbers that adds up to 0.
 
 
-def pirate_talk(phrase):
-    """Translate phrase to pirate talk.
+#     For example:
 
-    Given a phrase, translate each word to the Pirate-speak equivalent.
-    Words that cannot be translated into Pirate-speak should pass through
-    unchanged. Return the resulting sentence.
+#         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1]) )
+#         [[-2, 2], [-1, 1]]
 
-    Here's a table of English to Pirate translations:
+#     This should always be a unique list, even if there are
+#     duplicates in the input list:
 
-    English     Pirate
-    ----------  ----------------
-    sir         matey
-    hotel       fleabag inn
-    student     swabbie
-    boy         matey
-    madam       proud beauty
-    professor   foul blaggart
-    restaurant  galley
-    your        yer
-    excuse      arr
-    students    swabbies
-    are         be
-    lawyer      foul blaggart
-    the         th'
-    restroom    head
-    my          me
-    hello       avast
-    is          be
-    man         matey
+#         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 1]) )
+#         [[-2, 2], [-1, 1]]
 
-    For example:
+#     Of course, if there are one or more zeros to pair together,
+#     that's fine, too:
 
-        >>> pirate_talk("my student is not a man")
-        'me swabbie be not a matey'
+#         >>> sort_pairs( sum_zero([1, 2, 3, -2, -1, 1, 0, 1, 0]) )
+#         [[-2, 2], [-1, 1], [0, 0]]
 
-    You should treat words with punctuation as if they were different
-    words:
+#     """
 
-        >>> pirate_talk("my student is not a man!")
-        'me swabbie be not a man!'
+#     return []
 
-    """
 
-    return ""
+# def find_duplicates(words):
+#     """Given a list of words, return the list with duplicates removed.
 
-def adv_word_length_sorted_words(words):
-    """Given list of words, return list of ascending [(len, [sorted-words])].
+#     For example:
 
-    Given a list of words, return a list of tuples, ordered by word-length.
-    Each tuple should have two items--the length of the words for that
-    word-length, and the list of words of that word length. The list of words
-    for that length should be sorted alphabetically.
+#         >>> sorted(find_duplicates(
+#         ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
+#         ['a', 'is', 'rose']
 
-    For example:
+#     You should treat differently-capitalized words as different:
 
-        >>> adv_word_length_sorted_words(["ok", "an", "apple", "a", "day"])
-        [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
+#         >>> sorted(find_duplicates(
+#         ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
+#         ['Rose', 'a', 'is', 'rose']
 
-    """
+#     """
 
-    return []
+#     return []
+
+
+# def word_length(words):
+#     """Given list of words, return list of ascending [(len, [words])].
+
+#     Given a list of words, return a list of tuples, ordered by word-length.
+#     Each tuple should have two items--the length of the words for that
+#     word-length, and the list of words of that word length.
+
+#     For example:
+
+#         >>> word_length(["ok", "an", "apple", "a", "day"])
+#         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
+
+#     """
+
+#     return []
+
+
+# def pirate_talk(phrase):
+#     """Translate phrase to pirate talk.
+
+#     Given a phrase, translate each word to the Pirate-speak equivalent.
+#     Words that cannot be translated into Pirate-speak should pass through
+#     unchanged. Return the resulting sentence.
+
+#     Here's a table of English to Pirate translations:
+
+#     English     Pirate
+#     ----------  ----------------
+#     sir         matey
+#     hotel       fleabag inn
+#     student     swabbie
+#     boy         matey
+#     madam       proud beauty
+#     professor   foul blaggart
+#     restaurant  galley
+#     your        yer
+#     excuse      arr
+#     students    swabbies
+#     are         be
+#     lawyer      foul blaggart
+#     the         th'
+#     restroom    head
+#     my          me
+#     hello       avast
+#     is          be
+#     man         matey
+
+#     For example:
+
+#         >>> pirate_talk("my student is not a man")
+#         'me swabbie be not a matey'
+
+#     You should treat words with punctuation as if they were different
+#     words:
+
+#         >>> pirate_talk("my student is not a man!")
+#         'me swabbie be not a man!'
+
+#     """
+
+#     return ""
+
+# def adv_word_length_sorted_words(words):
+#     """Given list of words, return list of ascending [(len, [sorted-words])].
+
+#     Given a list of words, return a list of tuples, ordered by word-length.
+#     Each tuple should have two items--the length of the words for that
+#     word-length, and the list of words of that word length. The list of words
+#     for that length should be sorted alphabetically.
+
+#     For example:
+
+#         >>> adv_word_length_sorted_words(["ok", "an", "apple", "a", "day"])
+#         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
+
+#     """
+
+#     return []
 
 
 ##############################################################################

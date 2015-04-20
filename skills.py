@@ -241,84 +241,156 @@ sampleLst12 = "Rose", "is", "a", "rose", "is", "a", "rose"
 find_duplicates(sampleLst11)
 find_duplicates(sampleLst12)
 
-# def word_length(words):
-#     """Given list of words, return list of ascending [(len, [words])].
+def word_length(words):
+    """Given list of words, return list of ascending [(len, [words])].
 
-#     Given a list of words, return a list of tuples, ordered by word-length.
-#     Each tuple should have two items--the length of the words for that
-#     word-length, and the list of words of that word length.
+    Given a list of words, return a list of tuples, ordered by word-length.
+    Each tuple should have two items--the length of the words for that
+    word-length, and the list of words of that word length.
 
-#     For example:
+    # For example:
 
-#         >>> word_length(["ok", "an", "apple", "a", "day"])
-#         [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
+    #     >>> word_length(["ok", "an", "apple", "a", "day"])
+    #     [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
-#     """
+    """
 
-#     return []
+    w_len = []
+    wordList = []
+    for word in words:
+        return "word is", word
+        tple = (len(word), wordList,)
+        #if len(word) == tple[0] in w_len:
+        listOfTple = list(tple)
+        return "this is list", listOfTple
+        #setOfTple = set(listOfTple)
+        if listOfTple[0] not in w_len:
+            w_len.append(tple)
+        #print "set", setOfTple
+        return w_len
+      
+    #Not able to get unique dictionary
 
 
-# def pirate_talk(phrase):
-#     """Translate phrase to pirate talk.
 
-#     Given a phrase, translate each word to the Pirate-speak equivalent.
-#     Words that cannot be translated into Pirate-speak should pass through
-#     unchanged. Return the resulting sentence.
+#data = [[1,2,3], [4,5,6], [7,8,9]]
+#sorted_by_second = sorted(data, key=lambda tup: tup[1])
 
-#     Here's a table of English to Pirate translations:
+#    sorted_w_len = sorted(w_len, key=lambda tup: tup[0])
+ #   print sorted_w_len
 
-#     English     Pirate
-#     ----------  ----------------
-#     sir         matey
-#     hotel       fleabag inn
-#     student     swabbie
-#     boy         matey
-#     madam       proud beauty
-#     professor   foul blaggart
-#     restaurant  galley
-#     your        yer
-#     excuse      arr
-#     students    swabbies
-#     are         be
-#     lawyer      foul blaggart
-#     the         th'
-#     restroom    head
-#     my          me
-#     hello       avast
-#     is          be
-#     man         matey
 
-#     For example:
+sampleLst13 = "ok", "an", "apple", "a", "day"
 
-#         >>> pirate_talk("my student is not a man")
-#         'me swabbie be not a matey'
+# Failed at doing dictionary comprehension
+word_length(sampleLst13)
 
-#     You should treat words with punctuation as if they were different
-#     words:
 
-#         >>> pirate_talk("my student is not a man!")
-#         'me swabbie be not a man!'
 
-#     """
+def pirate_talk(phrase):
+    """Translate phrase to pirate talk.
 
-#     return ""
+    Given a phrase, translate each word to the Pirate-speak equivalent.
+    Words that cannot be translated into Pirate-speak should pass through
+    unchanged. Return the resulting sentence.
 
-# def adv_word_length_sorted_words(words):
-#     """Given list of words, return list of ascending [(len, [sorted-words])].
+    Here's a table of English to Pirate translations:
 
-#     Given a list of words, return a list of tuples, ordered by word-length.
-#     Each tuple should have two items--the length of the words for that
-#     word-length, and the list of words of that word length. The list of words
-#     for that length should be sorted alphabetically.
+    English     Pirate
+    ----------  ----------------
+    sir         matey
+    hotel       fleabag inn
+    student     swabbie
+    boy         matey
+    madam       proud beauty
+    professor   foul blaggart
+    restaurant  galley
+    your        yer
+    excuse      arr
+    students    swabbies
+    are         be
+    lawyer      foul blaggart
+    the         th'
+    restroom    head
+    my          me
+    hello       avast
+    is          be
+    man         matey
 
-#     For example:
+    For example:
 
-#         >>> adv_word_length_sorted_words(["ok", "an", "apple", "a", "day"])
-#         [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
+        >>> pirate_talk("my student is not a man")
+        'me swabbie be not a matey'
 
-#     """
+    You should treat words with punctuation as if they were different
+    words:
 
-#     return []
+        >>> pirate_talk("my student is not a man!")
+        'me swabbie be not a man!'
+
+    """
+
+    phrase_lst = phrase.split(" ")
+
+    pirate_words = ["matey", "fleabag inn", "swabbie", "matey", "proud beauty", "foul blaggart", 
+                    "galley", "yer", "arr", "swabbies", "be", "foul blaggart", "th'", "head", "me", "avast", "be", "matey"]
+
+    normal_words = ["sir", "hotel", "student", "boy", "madam", "professor", "restaurant", "your", 
+                    "excuse", "students", "are", "lawyer", "the", "restroom", "my", "hello", "is", "man"]
+
+    pirate_dict = {}
+
+    for index in range(len(pirate_words)):
+        pirate_dict[normal_words[index]] = pirate_words[index]
+
+    #return pirate_dict
+
+    converted_phrase = []
+
+    for word in phrase_lst:
+        if word in pirate_dict:
+            word = pirate_dict[word]
+        converted_phrase.append(word)
+
+    #for word in converted_phrase:
+
+    #print converted_phrase
+    #print type(converted_phrase)
+
+    converted_phraseStr = ' '.join(converted_phrase)
+    #print type(converted_phraseStr)
+
+    return converted_phraseStr
+    #print type(converted_phraseStr)
+
+sampleLst14 = "my student is not a man"
+sampleLst15 = "my student is not a man!"
+
+#pirate_talk(sampleLst14)
+pirate_talk(sampleLst15)
+
+
+def adv_word_length_sorted_words(words):
+    """Given list of words, return list of ascending [(len, [sorted-words])].
+
+    Given a list of words, return a list of tuples, ordered by word-length.
+    Each tuple should have two items--the length of the words for that
+    word-length, and the list of words of that word length. The list of words
+    for that length should be sorted alphabetically.
+
+    For example:
+
+        >>> adv_word_length_sorted_words(["ok", "an", "apple", "a", "day"])
+        [(1, ['a']), (2, ['an', 'ok']), (3, ['day']), (5, ['apple'])]
+
+    """
+
+
+
+
+sampleLst16 = ["ok", "an", "apple", "a", "day"]
+
+adv_word_length_sorted_words(sampleLst16)
 
 
 ##############################################################################

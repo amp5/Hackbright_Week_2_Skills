@@ -12,22 +12,22 @@ def count_unique(string1):
     that word appears in the string.
 
 
-    For example:
+    # For example:
 
-        >>> print_dict(count_unique("each word appears once"))
-        {'appears': 1, 'each': 1, 'once': 1, 'word': 1}
+    #     >>> print_dict(count_unique("each word appears once"))
+    #     {'appears': 1, 'each': 1, 'once': 1, 'word': 1}
 
-    Words that appear more than once should be counted each time:
+    # Words that appear more than once should be counted each time:
 
-        >>> print_dict(count_unique("rose is a rose is a rose"))
-        {'a': 2, 'is': 2, 'rose': 3}
+    #     >>> print_dict(count_unique("rose is a rose is a rose"))
+    #     {'a': 2, 'is': 2, 'rose': 3}
 
-    It's fine to consider punctuation part of a word (e.g., a comma
-    at the end of a word can be counted as part of that word) and
-    to consider differently-capitalized words as different:
+    # It's fine to consider punctuation part of a word (e.g., a comma
+    # at the end of a word can be counted as part of that word) and
+    # to consider differently-capitalized words as different:
 
-        >>> print_dict(count_unique("Porcupine see, porcupine do."))
-        {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
+    #     >>> print_dict(count_unique("Porcupine see, porcupine do."))
+    #     {'Porcupine': 1, 'do.': 1, 'porcupine': 1, 'see,': 1}
 
     """
     #create a dict with empty values. print keys.
@@ -60,6 +60,7 @@ sampleLst2 = "rose is a rose is a rose"
 #print count_unique(sampleLst2)
 
 
+# *********************************
 def common_items(list1, list2):
     """Produce the set of common items in two lists.
 
@@ -69,7 +70,7 @@ def common_items(list1, list2):
     IMPORTANT: you may not not 'if ___ in ___' or the method 'index'.
 
 
-    For example:
+    # For example:
 
     #     >>> sorted(common_items([1, 2, 3, 4], [1, 2]))
     #     [1, 2]
@@ -85,7 +86,7 @@ def common_items(list1, list2):
     #     >>> sorted(common_items([1, 1, 2, 2], [1, 2, 3, 4]))
     #     [1, 1, 2, 2]
 
-    """
+    # """
 
     giantLst = list1 + list2
 
@@ -124,18 +125,18 @@ def unique_common_items(list1, list2):
     IMPORTANT: you may not not 'if ___ in ___' or the method 'index'.
 
 
-    Just like `common_items`, this should find [1, 2]:
+    # Just like `common_items`, this should find [1, 2]:
 
-        >>> sorted(unique_common_items([1, 2, 3, 4], [1, 2]))
-        [1, 2]
+    #     >>> sorted(unique_common_items([1, 2, 3, 4], [1, 2]))
+    #     [1, 2]
 
-    However, now we only want unique items, so for these lists, don't show
-    more than 1 or 2 once:
+    # However, now we only want unique items, so for these lists, don't show
+    # more than 1 or 2 once:
 
-        >>> sorted(unique_common_items([1, 2, 3, 4], [1, 1, 2, 2]))
-        [1, 2]
+    #     >>> sorted(unique_common_items([1, 2, 3, 4], [1, 1, 2, 2]))
+    #     [1, 2]
 
-    """
+    # """
 
 
     set1 = set(list1) 
@@ -158,7 +159,7 @@ sampleLst8 = [1, 1, 2, 2]
 common_items(sampleLst6, sampleLst7)
 
 
-
+# ******************************************************************************
 def sum_zero(list1):
     """Return list of x,y number pair lists from a list where x+y==0
 
@@ -218,17 +219,17 @@ def find_duplicates(words):
 
     For example:
 
-        >>> sorted(find_duplicates(
-        ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
-        ['a', 'is', 'rose']
+    #     >>> sorted(find_duplicates(
+    #     ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
+    #     ['a', 'is', 'rose']
 
-    You should treat differently-capitalized words as different:
+    # You should treat differently-capitalized words as different:
 
-        >>> sorted(find_duplicates(
-        ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
-        ['Rose', 'a', 'is', 'rose']
+    #     >>> sorted(find_duplicates(
+    #     ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
+    #     ['Rose', 'a', 'is', 'rose']
 
-    """
+    # """
     
     setFromList = set(words)
     uniqueList = list(setFromList)
@@ -241,6 +242,8 @@ sampleLst12 = "Rose", "is", "a", "rose", "is", "a", "rose"
 find_duplicates(sampleLst11)
 find_duplicates(sampleLst12)
 
+
+#************** Questions about this one. Can't get it as tuples answer format*******
 def word_length(words):
     """Given list of words, return list of ascending [(len, [words])].
 
@@ -253,31 +256,28 @@ def word_length(words):
     #     >>> word_length(["ok", "an", "apple", "a", "day"])
     #     [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
 
-    """
+    # """
 
-    w_len = []
-    wordList = []
+    w_len = {}
+    wordLen = []
     for word in words:
-        return "word is", word
-        tple = (len(word), wordList,)
-        #if len(word) == tple[0] in w_len:
-        listOfTple = list(tple)
-        return "this is list", listOfTple
-        #setOfTple = set(listOfTple)
-        if listOfTple[0] not in w_len:
-            w_len.append(tple)
-        #print "set", setOfTple
-        return w_len
-      
-    #Not able to get unique dictionary
+        tple = (word, len(word))
+        wordCount = tple[1]
+     
 
+        ## WHY DOES THIS WORK AND NOT MY CODE BELOW! (str object has not attribute 'append')
+        w_len.setdefault(wordCount, []).append(word)
+        # if wordCount in w_len.keys():
+        #     w_len[wordCount].append(word)
+        #     print "this is supposed to be a blank value dict", w_len
+        # else:
+        #     w_len[wordCount] = word
+        #     #w_len[wordCount] = wordCount
 
+        # ALSO, I CANT GET THIS INTO A TUPLE AS THE DICTIONARY
+    
 
-#data = [[1,2,3], [4,5,6], [7,8,9]]
-#sorted_by_second = sorted(data, key=lambda tup: tup[1])
-
-#    sorted_w_len = sorted(w_len, key=lambda tup: tup[0])
- #   print sorted_w_len
+    return w_len
 
 
 sampleLst13 = "ok", "an", "apple", "a", "day"

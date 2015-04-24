@@ -61,6 +61,12 @@ sampleLst2 = "rose is a rose is a rose"
 
 
 # *********************************
+
+# Expected:
+#     [1, 1, 2, 2]
+# Got:
+#     [1, 2]
+
 def common_items(list1, list2):
     """Produce the set of common items in two lists.
 
@@ -114,7 +120,9 @@ sampleLst5 = [1, 1, 2, 2]
 
 #return common_items(sampleLst3, sampleLst4)
 
-# print common_items(sampleLst3, sampleLst5)
+common_items(sampleLst3, sampleLst5)
+common_items(sampleLst4, sampleLst3)
+common_items(sampleLst4, sampleLst5)
 
 def unique_common_items(list1, list2):
     """Produce the set of *unique* common items in two lists.
@@ -160,6 +168,9 @@ common_items(sampleLst6, sampleLst7)
 
 
 # ******************************************************************************
+# would there be a way to make my code work??
+
+
 def sum_zero(list1):
     """Return list of x,y number pair lists from a list where x+y==0
 
@@ -167,7 +178,7 @@ def sum_zero(list1):
     Return a list of each pair of numbers that adds up to 0.
 
 
-    # For example:
+    # # For example:
 
     #     >>> sort_pairs( sum_zero([1, 2, 3, -2, -1]) )
     #     [[-2, 2], [-1, 1]]
@@ -200,7 +211,15 @@ def sum_zero(list1):
         if num_pair[1] in srtedList:
             list_sum_zero.append(num_pair)
 
-    return list_sum_zero
+    # print list_sum_zero
+
+
+    # found = {}
+    # for x in list1:
+    #     for y in list1:
+    #         if x + y == 0 and (y, x) not in found:
+    #             found[(x, y)] = 1
+    # print found.keys()
  
 
   
@@ -251,7 +270,7 @@ def word_length(words):
     Each tuple should have two items--the length of the words for that
     word-length, and the list of words of that word length.
 
-    # For example:
+    # # For example:
 
     #     >>> word_length(["ok", "an", "apple", "a", "day"])
     #     [(1, ['a']), (2, ['ok', 'an']), (3, ['day']), (5, ['apple'])]
@@ -277,7 +296,13 @@ def word_length(words):
         # ALSO, I CANT GET THIS INTO A TUPLE AS THE DICTIONARY
     
 
-    return w_len
+    print w_len
+
+    for key in w_len.keys():
+        tuple_form =(key, w_len[key])
+    print tuple_form
+
+    
 
 
 sampleLst13 = "ok", "an", "apple", "a", "day"
